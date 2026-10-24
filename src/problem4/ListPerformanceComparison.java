@@ -17,8 +17,10 @@ public class ListPerformanceComparison {
 
         System.out.println("---- Populate both lists ----");
         for (int i = 0; i < SIZE; i++) {
-            //code here
-            //code here
+            //code here:
+            arrayList.add(i);
+            //code here:
+            linkedList.add(i);
         }
 
         // 2️⃣ Random insertions and deletions
@@ -41,6 +43,22 @@ public class ListPerformanceComparison {
         long start = System.nanoTime();
 
         // insert your code here
+        for (int i = 0 ; i < OPERATIONS; i++ ){
+            // we check if empty, i know we populated the lists but let's just generalize:
+            if (list.isEmpty()){
+                list.add(random.nextInt(10));
+            }
+            else{
+                int idx = random.nextInt(list.size());
+                if (random.nextBoolean()){
+                    // we randomly append or delete:
+                    list.add(idx,i);
+                }
+                else{
+                    list.remove(idx);
+                }
+            }
+        }
 
         long end = System.nanoTime();
         System.out.printf("%s - Random insert/delete: %.3f ms%n",
@@ -55,10 +73,23 @@ public class ListPerformanceComparison {
         // Insertions at beginning and end
 
         // add your code here
+        for (int i = 0 ; i<OPERATIONS; i++){
+            // we add at beginning:
+            list.add(0,i);
+            // we add at the end:
+            list.add(i);
+        }
 
         // Deletions at beginning and end
 
         // add your code here
+        for (int i = 0 ; i<OPERATIONS; i++){
+            // remove at beginning:
+            list.remove(0);
+            // remove at the end:
+            list.remove(list.size()-1);
+
+        }
 
         long end = System.nanoTime();
         System.out.printf("%s - Sequential insert/delete (start/end): %.3f ms%n",
@@ -74,6 +105,10 @@ public class ListPerformanceComparison {
         long sum = 0;
         // sum of the all elements in the list
        // insert your code here
+
+        for (int i = 0 ; i < OPERATIONS ; i++){
+            sum += list.get(random.nextInt(list.size()));
+        }
 
         long end = System.nanoTime();
         System.out.printf("%s - Random access (get): %.3f ms%n",
