@@ -15,11 +15,13 @@ public class BookStack {
 
     public Book pop() {
         // code here and don't to test if it's empty
+        System.out.println("Popped : " +stack.getFirst());
         return stack.removeFirst();
     }
 
     public Book peek() {
         // code here and don't to test if it's empty
+        System.out.println("Top : " +stack.getFirst());
         return stack.getFirst();
     }
 
