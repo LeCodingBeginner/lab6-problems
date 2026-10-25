@@ -6,9 +6,9 @@ public class Bank {
     private String name ;
     private ArrayList<Customer> customers;
 
-    public Bank(String name,ArrayList<Customer> customers){
+    public Bank(String name){
         this.name = name;
-        this.customers = customers;
+        this.customers = new ArrayList<>();
     }
 
     public String getName() {
